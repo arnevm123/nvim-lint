@@ -143,6 +143,7 @@ Other dedicated linters that are built-in are:
 | [Selene][31]                       | `selene`               |
 | [ShellCheck][10]                   | `shellcheck`           |
 | [sqlfluff][sqlfluff]               | `sqlfluff`             |
+| [standardjs][standardjs]           | `standardjs`           |
 | [StandardRB][27]                   | `standardrb`           |
 | [statix check][33]                 | `statix`               |
 | [stylelint][29]                    | `stylelint`            |
@@ -280,6 +281,19 @@ phpcs.args = {
 }
 ```
 
+## Get the current running linters for your buffer
+
+You can see which linters are running with require("lint").get_running_proc(). An example:
+
+```lua
+    local procs = require("lint").get_running_proc()
+    local string = ""
+    for _, proc in ipairs(procs) do
+        string = string .. proc .. " ,"
+    end
+    return "Linters running: " .. string.sub(string, 1, -2)
+```
+
 
 ## Alternatives
 
@@ -395,3 +409,4 @@ busted tests/
 [rpm]: https://rpm.org
 [ec]: https://github.com/editorconfig-checker/editorconfig-checker
 [deno]: https://github.com/denoland/deno
+[standardjs]: https://standardjs.com/
